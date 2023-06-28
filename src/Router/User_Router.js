@@ -5,6 +5,12 @@ import { UserModel } from '../models/Users.js';
 
 const router = express.Router();
 
+router.get("/all",async(req,res)=>{
+    const all_user = await UserModel.find({});
+    res.json({ Users : all_user });
+})
+
+
 router.post("/register",async (req,res) => {
 
     try {

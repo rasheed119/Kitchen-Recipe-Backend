@@ -27,6 +27,9 @@ router.post("/login",async (req,res) => {
 
     try {
         const { username, password } = req.body;
+        if( !username || !password){
+            return res.json({ message : "Please provide proper Credentials" })
+        }
         const user = await UserModel.findOne({ username });
         if(!user){
             return res.json({ message : "User Not Found , Please register to Continue" });

@@ -32,7 +32,7 @@ router.put("/",async(req,res)=>{
         const user = await UserModel.findById(req.body.userID);
         user.SavedRecipes.push(recipe);
         await user.save();
-        res.json({ data : user });
+        res.json({ SavedRecipes : user.SavedRecipes });
     } catch (error) {
         console.log(error.message);
     }
